@@ -1,5 +1,5 @@
 import React from 'react';
-import NewAppBar from './components/navigation/AppBar/AppBar';
+import CustomAppBar from './components/navigation/AppBar/CustomAppBar'; 
 import './App.css';
 import Home from './components/pages/Home/Home';
 import {BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,7 +14,7 @@ const urls = {
 function App() {
   return (
       <BrowserRouter>
-        <NewAppBar />
+        <CustomAppBar />
         <Routes>
           <Route path={urls.home} element={<Home />} />
           <Route path={urls.login} element={<Login />} />

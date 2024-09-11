@@ -1,37 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#08374B',
-    },
-    text: {
-      primary: '#08374B',
-    },
-    typography: {
-      fontFamily: [
-        'Playfair Display',
-        'Roboto',
-      ].join(','),
-    },
 
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 960,
-        lg: 1280,
-        xl: 1920,
-      },
-    }, 
-  },
-});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

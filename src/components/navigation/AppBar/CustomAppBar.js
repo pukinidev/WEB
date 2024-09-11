@@ -14,13 +14,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-const drawerWidth = 240;
-const navItems = ["Iniciar Sesión", "Registrarse"];
-
-function NewAppBar(props) {
+function CustomAppBar() {
   const navigate = useNavigate();
-  const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const drawerWidth = 240;
+  const navItems = ["Iniciar Sesión", "Registrarse"];
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -32,18 +30,20 @@ function NewAppBar(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} onClick={
-                item === "Iniciar Sesión" ? () => navigate("/login") : () => navigate("/signup")
-              }/>
+              <ListItemText
+                primary={item}
+                onClick={
+                  item === "Iniciar Sesión"
+                    ? () => navigate("/login")
+                    : () => navigate("/signup")
+                }
+              />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
     </Box>
   );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -75,21 +75,26 @@ function NewAppBar(props) {
             BiblioPool
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button color="primary" variant="text" sx={{ m: 2 }} onClick={
-              () => navigate("/login")
-            }>
+            <Button
+              color="primary"
+              variant="text"
+              sx={{ m: 2 }}
+              onClick={() => navigate("/login")}
+            >
               Iniciar Sesión
             </Button>
-            <Button color="primary" variant="contained" onClick={
-              () => navigate("/signup")
-            }>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => navigate("/signup")}
+            >
               Registrarse
             </Button>
           </Box>
 
           <Box className=".appBarTitle">
             <Typography
-              sx={{ display: { sm: "none" }, fontFamily: "Playfair Display" } }
+              sx={{ display: { sm: "none" }, fontFamily: "Playfair Display" }}
               onClick={() => navigate("/")}
             >
               BiblioPool
@@ -97,26 +102,25 @@ function NewAppBar(props) {
           </Box>
         </Toolbar>
       </AppBar>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: drawerWidth,
+          },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </Box>
   );
 }
 
-export default NewAppBar;
+export default CustomAppBar;
