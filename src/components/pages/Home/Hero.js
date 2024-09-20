@@ -30,6 +30,7 @@ function Hero() {
     <HeroContainer >
       <Typography 
         variant="h1" 
+        color='heading'
         sx={{ 
           fontFamily: 'Playfair Display', 
           fontSize: isMobile ? '3rem' : isTablet ? '4rem' : 'rem', // Ajuste del tamaño del texto

@@ -5,8 +5,8 @@ const theme = createTheme({
       primary: {
         main: '#08374B',
       },
-      text: {
-        primary: '#08374B',
+      heading: {
+        main: '#08374B',
       },
       typography: {
         fontFamily: [

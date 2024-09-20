@@ -26,13 +26,10 @@ function FeaturesHero() {
   const theme = useTheme();
   return (
     <div>
-      <Typography variant="h4" sx={styles(theme).FeatureTitle}>
+      <Typography variant="h4" color="heading" sx={styles(theme).FeatureTitle}>
         BiblioPool: La Evolución de tu Biblioteca Digital
       </Typography>
-      <Typography
-        variant="body1"
-        sx={styles(theme).FeatureContent}
-      >
+      <Typography variant="body1" sx={styles(theme).FeatureContent}>
         Diseñada para ofrecer una experiencia de consulta bibliográfica más
         accesible para el usuario.
       </Typography>
@@ -46,15 +43,13 @@ function FeaturesHero() {
           <Grid2 item xs={12} sm={6} md={4} key={title}>
             <Card sx={styles(theme).FeatureCard}>
               <CardContent>
-                <Box
-                  sx={styles(theme).FeatureBox}
-                >
+                <Box sx={styles(theme).FeatureBox}>
                   <Icon
                     component={featuresIcons[featuresCardTitles.indexOf(title)]}
                     sx={{ fontSize: 25, color: "white" }}
                   />
                 </Box>
-                <h3>{title}</h3>
+                <Typography variant="h6" color="heading" sx={styles(theme).FeatureCardTile} >{title}</Typography>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
                   quibusdam, voluptatem, quod, autem dolorum quia quae
@@ -115,6 +110,9 @@ const styles = (theme) => {
       textAlign: "center",
       margin: theme.spacing(0, 4, 0, 4),
       fontFamily: "Roboto",
+    },
+    FeatureCardTile: {
+      mt: '1rem'
     }
   };
 };
